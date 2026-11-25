@@ -1,0 +1,613 @@
+/* ==========================================================================
+   BrewCraft Café - Main Stylesheet
+   ========================================================================== */
+
+:root {
+    --bg: #faf6f1;
+    --surface: #ffffff;
+    --surface-alt: #f3ebe2;
+    --espresso: #2c1a12;
+    --roast: #4a2c1d;
+    --caramel: #c87d3b;
+    --caramel-hover: #b1692c;
+    --text: #33251e;
+    --muted: #6e5a4f;
+    --border: #e6d8ca;
+    --shadow-sm: 0 4px 12px rgba(44, 26, 18, 0.06);
+    --shadow-md: 0 10px 26px rgba(44, 26, 18, 0.12);
+    --radius: 14px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: min(1120px, 92%);
+    margin-inline: auto;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.navbar {
+    background-color: var(--espresso);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.logo {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fbf5ee;
+    text-decoration: none;
+    letter-spacing: 0.4px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: #e6d6c7;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.96rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links a.active {
+    background-color: var(--caramel);
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   Hero & Page Header
+   ========================================================================== */
+
+.hero,
+.page-header {
+    background: linear-gradient(135deg, #24140d 0%, #462819 55%, #6b3f28 100%);
+    color: #fdf8f2;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero {
+    padding: 5.5rem 0;
+}
+
+.page-header {
+    padding: 3.5rem 0;
+}
+
+.hero h1,
+.page-header h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 4.2vw, 3.25rem);
+    line-height: 1.2;
+    margin-bottom: 0.9rem;
+    letter-spacing: -0.3px;
+}
+
+.hero p,
+.page-header p {
+    font-size: clamp(1rem, 1.8vw, 1.18rem);
+    color: #eadbd0;
+    max-width: 640px;
+    margin-inline: auto;
+}
+
+.hero p {
+    margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+    display: inline-block;
+    background-color: var(--caramel);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.98rem;
+    padding: 0.8rem 1.65rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 14px rgba(200, 125, 59, 0.35);
+}
+
+.btn:hover {
+    background-color: var(--caramel-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(200, 125, 59, 0.45);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-small {
+    padding: 0.55rem 1.2rem;
+    font-size: 0.88rem;
+}
+
+/* ==========================================================================
+   Sections & Headings
+   ========================================================================== */
+
+.featured {
+    padding: 3.25rem 0;
+}
+
+.featured + .featured {
+    padding-top: 0.75rem;
+}
+
+.section-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.45rem, 2.5vw, 1.9rem);
+    color: var(--espresso);
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.hint-text {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--muted);
+}
+
+/* ==========================================================================
+   Grids & Standard Cards
+   ========================================================================== */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
+}
+
+.menu-grid {
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    gap: 1.5rem;
+}
+
+.two-col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: start;
+}
+
+.card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dish-card {
+    padding: 0;
+    overflow: hidden;
+    gap: 0;
+}
+
+.card-img-wrap {
+    width: 100%;
+    height: 195px;
+    overflow: hidden;
+    background-color: var(--surface-alt);
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.dish-card:hover .card-img {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 1.3rem 1.4rem 1.45rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex: 1;
+}
+
+.card-grid .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.card h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.28rem;
+    color: var(--espresso);
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 0.97rem;
+}
+
+.card strong {
+    color: var(--espresso);
+}
+
+.price {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--caramel-hover);
+}
+
+/* ==========================================================================
+   3D Flip Cards (Home Page)
+   ========================================================================== */
+
+.flip-card {
+    background-color: transparent;
+    height: 410px;
+    perspective: 1100px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+}
+
+.flip-card-front {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    padding: 0;
+}
+
+.flip-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 195px;
+    overflow: hidden;
+    background-color: var(--surface-alt);
+    flex-shrink: 0;
+}
+
+.flip-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.flip-front-body {
+    padding: 1.25rem 1.45rem 1.45rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.flip-card-front h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.3rem;
+    color: var(--espresso);
+}
+
+.flip-card-front p {
+    color: var(--muted);
+    font-size: 0.94rem;
+}
+
+.badge {
+    position: absolute;
+    top: 0.85rem;
+    left: 0.85rem;
+    display: inline-block;
+    background-color: rgba(44, 26, 18, 0.88);
+    color: #fdf8f2;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 0.28rem 0.75rem;
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
+}
+
+.flip-card-back {
+    background: linear-gradient(155deg, var(--espresso) 0%, var(--roast) 100%);
+    color: #fdf8f2;
+    padding: 1.75rem;
+    transform: rotateY(180deg);
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: var(--shadow-md);
+}
+
+.flip-card-back h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.25rem;
+    color: #f3c18f;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    width: 100%;
+    padding-bottom: 0.5rem;
+}
+
+.flip-card-back ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    font-size: 0.9rem;
+    color: #efe4d9;
+}
+
+.flip-card-back strong {
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   About Page: Feature List & Hours Table
+   ========================================================================== */
+
+.feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.feature-list li {
+    position: relative;
+    padding-left: 1.35rem;
+    color: var(--muted);
+    font-size: 0.96rem;
+}
+
+.feature-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: -0.05rem;
+    color: var(--caramel);
+    font-size: 1.3rem;
+    line-height: 1.3;
+}
+
+.hours-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+}
+
+.hours-table thead {
+    background-color: var(--espresso);
+    color: #fdf8f2;
+}
+
+.hours-table th,
+.hours-table td {
+    text-align: left;
+    padding: 0.95rem 1.2rem;
+    font-size: 0.96rem;
+}
+
+.hours-table th {
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.hours-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background-color 0.15s ease;
+}
+
+.hours-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.hours-table tbody tr:hover {
+    background-color: var(--bg);
+}
+
+.hours-table td:last-child {
+    font-weight: 600;
+    color: #2f7d46;
+}
+
+/* ==========================================================================
+   Contact Page: Reservation Form
+   ========================================================================== */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.contact-form label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--espresso);
+    margin-top: 0.2rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem 0.95rem;
+    font-family: inherit;
+    font-size: 0.96rem;
+    color: var(--text);
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    background-color: var(--surface);
+    border-color: var(--caramel);
+    box-shadow: 0 0 0 3px rgba(200, 125, 59, 0.18);
+}
+
+.contact-form button {
+    margin-top: 0.5rem;
+    align-self: flex-start;
+}
+
+.form-confirmation {
+    margin-top: 0.75rem;
+    padding: 0.9rem 1rem;
+    border-radius: 10px;
+    background-color: #edf7f0;
+    border: 1px solid #b7dfc3;
+    color: #215b33;
+    font-size: 0.94rem;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+    margin-top: auto;
+    background-color: var(--espresso);
+    color: #e6d6c7;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.94rem;
+}
+
+footer .copyright {
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+    color: #baa493;
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+
+@media (max-width: 640px) {
+    .nav-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .hero {
+        padding: 4rem 0;
+    }
+
+    .flip-card {
+        height: 420px;
+    }
+
+    .hours-table th,
+    .hours-table td {
+        padding: 0.75rem 0.8rem;
+        font-size: 0.88rem;
+    }
+}
+

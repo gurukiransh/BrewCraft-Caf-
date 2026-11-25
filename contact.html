@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Reserve | BrewCraft Café</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">BrewCraft Café</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Visit & Reserve a Table</h1>
+            <p>Drop by for a quick espresso or book a table for your group.</p>
+        </div>
+    </section>
+
+    <!-- Contact Info & Reservation Form -->
+    <section class="featured container">
+        <div class="two-col">
+            <!-- Left: Cafe Details -->
+            <div class="card">
+                <h3>Find Us</h3>
+                <p><strong>Address:</strong> 42 Roastery Lane, Indiranagar, Bengaluru, Karnataka 560038</p>
+                <p><strong>Phone:</strong> +91 98765 43210</p>
+                <p><strong>Email:</strong> hello@brewcraftcafe.in</p>
+                <p><strong>Daily Hours:</strong> 8:00 AM – 10:00 PM</p>
+            </div>
+
+            <!-- Right: Reservation Form -->
+            <div class="card">
+                <h3>Reserve a Table</h3>
+                <form class="contact-form" action="#" method="post">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+                    <label for="guests">Number of Guests</label>
+                    <select id="guests" name="guests">
+                        <option value="1">1 Person</option>
+                        <option value="2" selected>2 People</option>
+                        <option value="4">4 People</option>
+                        <option value="6">6+ Group</option>
+                    </select>
+
+                    <label for="message">Special Request / Preferred Time</label>
+                    <textarea id="message" name="message" rows="4"
+                        placeholder="e.g., Window seat at 5:30 PM"></textarea>
+
+                    <button type="submit" class="btn">Confirm Reservation</button>
+                    <p id="form-confirmation" class="form-confirmation" hidden></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>BrewCraft Café • Open Daily: 8:00 AM – 10:00 PM</p>
+            <p class="copyright">© 2026 BrewCraft Café. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const reservationForm = document.querySelector(".contact-form");
+        const confirmationMsg = document.getElementById("form-confirmation");
+
+        reservationForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value.trim();
+            const guestsSelect = document.getElementById("guests");
+            const guestsText = guestsSelect.options[guestsSelect.selectedIndex].text;
+
+            confirmationMsg.textContent =
+                "Thank you, " + name + "! Your reservation request for " + guestsText + " has been received.";
+            confirmationMsg.hidden = false;
+            reservationForm.reset();
+        });
+    </script>
+
+</body>
+
+</html>
